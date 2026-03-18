@@ -73,7 +73,7 @@ export default function AdminLoginPage() {
           <Shield className="h-6 w-6 text-primary" />
         </div>
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          RecordX Admin
+          MediLink Admin
         </h1>
         <p className="text-sm text-muted-foreground">
           Sign in to access the admin dashboard
@@ -92,7 +92,7 @@ export default function AdminLoginPage() {
                   <Input
                     type="email"
                     autoComplete="email"
-                    placeholder="admin@recordx.com"
+                    placeholder="admin@MediLink.com"
                     {...field}
                   />
                 </FormControl>

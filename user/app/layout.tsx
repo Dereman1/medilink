@@ -1,16 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Geist_Mono, Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
 import { HydrationGuard } from "@/components/HydrationGuard";
 import { AuthApiSync } from "@/components/AuthApiSync";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+// Modern heading font - Outfit
+const headingFont = Outfit({ 
+  subsets: ['latin'], 
+  variable: '--font-heading',
+  weight: ['400', '500', '600', '700']
+});
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+// Body font - Inter
+const bodyFont = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  weight: ['400', '500', '600']
 });
 
 const geistMono = Geist_Mono({
@@ -19,8 +26,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RecordX - Your Personal health record manager",
-  description: "RecordX is a personal health record manager that helps you keep track of your medical history, medications, and appointments in one secure place.",
+  title: "MediLink - Portable Patient Medical Record Platform",
+  description: "MediLink enables patients to securely store, manage, and share their medical records with authorized healthcare providers anytime, anywhere.",
 };
 
 export default function RootLayout({
@@ -29,11 +36,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", inter.variable)}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
-      >
+    <html lang="en" className={cn(headingFont.variable, bodyFont.variable)}>
+      <body className={`${geistMono.variable} antialiased`} suppressHydrationWarning>
         <HydrationGuard>
           <AuthApiSync />
           {children}

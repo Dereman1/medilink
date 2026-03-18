@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RecordX Admin",
-  description: "Admin panel for RecordX - Medical Records Management",
+  title: "MediLink Admin",
+  description: "Admin panel for MediLink - Medical Records Management",
 };
 
 export default function RootLayout({

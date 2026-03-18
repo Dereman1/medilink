@@ -124,7 +124,7 @@ export default function DashboardPage() {
           Dashboard
         </h1>
         <p className="text-sm text-muted-foreground">
-          Overview of RecordX platform statistics
+          Overview of MediLink platform statistics
         </p>
       </div>
 

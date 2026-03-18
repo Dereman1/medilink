@@ -21,7 +21,7 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 
-import heroImageUrl from "@/public/recordx_hero.png";
+import heroImageUrl from "@/public/MediLink_hero.png";
 import { useAuthStore } from "@/store/auth-store";
 import { logoutUser, getRoleFromUser, getDashboardPathForRole } from "@/lib/auth";
 import { toast } from "sonner";
@@ -124,12 +124,10 @@ export default function Home() {
       </header>
 
       <main className="pt-19">
-        {" "}
-        {/* Add padding top equal to navbar height */}
-        {/* Hero Section */}
+        {/* Hero Section - White with subtle gradient */}
         <section
           id="home"
-          className="flex items-center justify-center mx-auto max-w-7xl px-6 gap-12 lg:px-20"
+          className="flex items-center justify-center mx-auto max-w-7xl px-6 gap-12 lg:px-20 bg-gradient-to-b from-white to-[#f8fafc]"
           style={{
             minHeight: "calc(100vh - 76px)",
             paddingTop: "2rem",
@@ -150,7 +148,6 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link href="/register?role=patient">
                 <Button
-                onClick={() => router.push("/login")}
                   size="lg"
                   className="h-12 cursor-pointer px-6 text-base md:w-fit w-full"
                 >
@@ -168,24 +165,26 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="bg-linear-to-b from-white to-slate-50 py-16">
+
+        {/* Key Benefits Section - Light navy background */}
+        <section className="bg-[#f5f7fa] py-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-20">
             <h2 className="mb-12 text-center text-3xl font-bold text-slate-900">
               Key Benefits
             </h2>
 
             <div className="grid gap-6 md:grid-cols-3">
-              <Card className="p-8 text-center bg-white">
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-blue-50">
+              <Card className="p-8 text-center bg-white border border-primary/5 hover:border-primary/20 transition-all">
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
                   <div className="relative h-16 w-16">
                     <ShieldCheckIcon
-                      className="absolute inset-0 h-12 w-12 text-blue-600"
+                      className="absolute inset-0 h-12 w-12 text-primary"
                       strokeWidth={1.5}
                     />
-                    <div className="absolute bottom-0 right-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
+                    <div className="absolute bottom-0 right-0 h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
                       <svg
                         viewBox="0 0 24 24"
-                        className="h-5 w-5 text-blue-600"
+                        className="h-5 w-5 text-primary"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth={2}
@@ -198,23 +197,22 @@ export default function Home() {
                 <h3 className="text-lg font-semibold text-slate-900">
                   For Patients:
                 </h3>
-                <p className="text-sm font-medium text-slate-900 ">
-                  Your health, in your hands. Securlely store and share records.
+                <p className="text-sm font-medium text-slate-900">
+                  Your health, in your hands. Securely store and share records.
                 </p>
-                
               </Card>
 
-              <Card className="p-8 text-center bg-emerald-50">
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100">
+              <Card className="p-8 text-center bg-white border border-accent/5 hover:border-accent/20 transition-all">
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-accent/20">
                   <div className="relative h-16 w-16">
                     <ClipboardListIcon
-                      className="absolute left-2 top-1 h-10 w-10 text-emerald-600"
+                      className="absolute left-2 top-1 h-10 w-10 text-accent-foreground"
                       strokeWidth={1.5}
                     />
-                    <div className="absolute right-0 top-0 h-8 w-8 rounded-full bg-emerald-200 flex items-center justify-center">
+                    <div className="absolute right-0 top-0 h-8 w-8 rounded-full bg-accent/30 flex items-center justify-center">
                       <svg
                         viewBox="0 0 24 24"
-                        className="h-5 w-5 text-emerald-700"
+                        className="h-5 w-5 text-accent-foreground"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth={2}
@@ -231,18 +229,17 @@ export default function Home() {
                 <p className="text-sm font-medium text-slate-900">
                   Full history, seamless care, while accessing patient records with ease.
                 </p>
-               
               </Card>
 
-              <Card className="p-8 text-center bg-white">
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-50">
+              <Card className="p-8 text-center bg-white border border-primary/5 hover:border-primary/20 transition-all">
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/5">
                   <div className="relative h-16 w-16">
                     <NetworkIcon
-                      className="absolute left-1 top-2 h-12 w-12 text-slate-600"
+                      className="absolute left-1 top-2 h-12 w-12 text-primary"
                       strokeWidth={1.5}
                     />
                     <BuildingIcon
-                      className="absolute right-0 bottom-0 h-8 w-8 text-slate-700"
+                      className="absolute right-0 bottom-0 h-8 w-8 text-primary/70"
                       strokeWidth={2}
                     />
                   </div>
@@ -253,12 +250,13 @@ export default function Home() {
                 <p className="text-sm font-medium text-slate-900 mb-2">
                   Streamlined coordination. Manage your providers.
                 </p>
-              
               </Card>
             </div>
           </div>
         </section>
-        <section id="how-it-works" className="bg-white py-16">
+
+        {/* How It Works Section - Light sage background */}
+        <section id="how-it-works" className="bg-[#f8faf5] py-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h2 className="mb-16 text-center text-3xl font-bold text-slate-900">
               How Record<span className="text-primary italic">X</span> Works
@@ -266,9 +264,9 @@ export default function Home() {
 
             <div className="grid gap-8 md:grid-cols-4">
               <div className="flex flex-col items-center text-center">
-                <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-2xl bg-emerald-50">
+                <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-2xl bg-primary/5">
                   <SearchCheckIcon
-                    className="h-12 w-12 text-emerald-600"
+                    className="h-12 w-12 text-primary"
                     strokeWidth={1.5}
                   />
                 </div>
@@ -281,9 +279,9 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col items-center text-center">
-                <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-2xl bg-blue-50">
+                <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-2xl bg-primary/5">
                   <LockKeyholeIcon
-                    className="h-12 w-12 text-blue-600"
+                    className="h-12 w-12 text-primary"
                     strokeWidth={1.5}
                   />
                 </div>
@@ -296,9 +294,9 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col items-center text-center">
-                <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-2xl bg-slate-50">
+                <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-2xl bg-accent/10">
                   <ClipboardPlusIcon
-                    className="h-12 w-12 text-slate-600"
+                    className="h-12 w-12 text-accent-foreground"
                     strokeWidth={1.5}
                   />
                 </div>
@@ -311,9 +309,9 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col items-center text-center">
-                <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-2xl bg-emerald-50">
+                <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-2xl bg-accent/10">
                   <ShieldIcon
-                    className="h-12 w-12 text-emerald-600"
+                    className="h-12 w-12 text-accent-foreground"
                     strokeWidth={1.5}
                   />
                 </div>
@@ -327,23 +325,29 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="bg-linear-to-b from-slate-50 to-white py-16">
+
+        {/* CTA Section - Navy gradient */}
+        <section className="bg-gradient-to-br from-primary to-primary/80 py-16">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
-            <h2 className="mb-6 text-3xl font-bold text-slate-900">
+            <h2 className="mb-6 text-3xl font-bold text-white">
               Ready to Take Control of Your Medical Records?
             </h2>
-            <p className="mb-8 text-lg text-slate-600">
-              Join RecordX today and experience secure, accessible healthcare.
+            <p className="mb-8 text-lg text-white/90">
+              Join MediLink today and experience secure, accessible healthcare.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button onClick={() => router.push('/register')} size="lg" className="h-12 px-8 text-base cursor-pointer md:w-fit w-full">
+              <Button 
+                onClick={() => router.push('/register')} 
+                size="lg" 
+                className="h-12 px-8 text-base cursor-pointer md:w-fit w-full bg-white text-primary hover:bg-white/90"
+              >
                 Get Started Now
               </Button>
               <Button
                 onClick={() => router.push('/login')} 
                 size="lg"
                 variant="outline"
-                className="h-12 px-8 text-base cursor-pointer md:w-fit w-full"
+                className="h-12 px-8 text-base cursor-pointer md:w-fit w-full border-white text-white hover:bg-white/10"
               >
                 Sign In
               </Button>
@@ -352,29 +356,30 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-border/40 bg-slate-50 py-8">
+      {/* Footer - Dark navy */}
+      <footer className="border-t border-primary/10 bg-[#0a1929] py-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-20">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <div className="flex items-center gap-2">
               <h1 className="text-2xl font-bold flex items-center gap-2">
-                <FileBadge className="text-primary h-8 w-8" strokeWidth={1.5} />
-                <span>Record</span>
-                <span className="text-primary italic -ml-2">X</span>
+                <FileBadge className="text-accent h-8 w-8" strokeWidth={1.5} />
+                <span className="text-white">Record</span>
+                <span className="text-accent italic -ml-2">X</span>
               </h1>
             </div>
-            <p className="text-sm text-slate-600">
-              © 2026 RecordX. All rights reserved.
+            <p className="text-sm text-gray-400">
+              © 2026 MediLink. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <Link
                 href="#privacy"
-                className="text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                className="text-sm text-gray-400 hover:text-white transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="#terms"
-                className="text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                className="text-sm text-gray-400 hover:text-white transition-colors"
               >
                 Terms of Service
               </Link>

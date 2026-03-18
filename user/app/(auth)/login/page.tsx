@@ -84,7 +84,7 @@ export default function LoginPage() {
           
         </p>
         <h1 className="text-xl font-semibold tracking-tight text-slate-900">
-          Welcome back to RecordX
+          Welcome back to MediLink
         </h1>
         <p className="text-sm text-slate-600">
           Sign in to securely access your digital medical records.

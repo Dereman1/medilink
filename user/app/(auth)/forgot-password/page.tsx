@@ -25,7 +25,7 @@ export default function ForgotPasswordPage() {
     resolver: zodResolver(forgotPasswordSchema),
     defaultValues: {
       email: "",
-      redirectTo : "https://recordxx.vercel.app/reset-password"
+      redirectTo : "https://MediLinkx.vercel.app/reset-password"
     },
   });
 

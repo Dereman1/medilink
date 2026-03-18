@@ -101,7 +101,7 @@ export function AdminSidebar() {
             <Shield className="h-4 w-4 text-primary" />
           </div>
           <div>
-            <h1 className="text-lg font-semibold text-foreground">RecordX</h1>
+            <h1 className="text-lg font-semibold text-foreground">MediLink</h1>
             <p className="text-xs text-muted-foreground">Admin Panel</p>
           </div>
         </div>
@@ -127,7 +127,7 @@ export function AdminSidebar() {
                 "w-full justify-start gap-3 transition-colors",
                 isActive(item.href)
                   ? "bg-primary text-primary-foreground"
-                  : "text-foreground hover:bg-muted",
+                  : "text-foreground hover:bg-primary/10 hover:text-primary",
               )}
               onClick={() => setOpen(false)}
             >
@@ -142,7 +142,7 @@ export function AdminSidebar() {
       <div className="border-t border-border p-4">
         <Button
           variant="ghost"
-          className="w-full justify-start gap-3 text-foreground hover:bg-muted"
+          className="w-full justify-start gap-3 text-foreground hover:bg-destructive/10 hover:text-destructive"
           onClick={handleLogout}
         >
           <LogOut className="size-4" />
