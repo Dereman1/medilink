@@ -62,7 +62,6 @@ export default function LoginPage() {
       const dashboardPath = getDashboardPathForRole(role);
 
       toast.success("Welcome back!");
-
       router.push(dashboardPath);
       router.refresh();
     } catch (error) {
@@ -78,89 +77,100 @@ export default function LoginPage() {
   const isSubmitting = form.formState.isSubmitting;
 
   return (
-    <div className="space-y-6">
-      <div className="space-y-1">
-        <p className="text-xs font-semibold uppercase tracking-wide text-sky-700">
-          
-        </p>
-        <h1 className="text-xl font-semibold tracking-tight text-slate-900">
-          Welcome back to MediLink
-        </h1>
-        <p className="text-sm text-slate-600">
-          Sign in to securely access your digital medical records.
-        </p>
-      </div>
+    <div className="flex min-h-[70vh] items-center justify-center">
+      <div className="w-full max-w-md space-y-8">
+        {/* Intro Text OUTSIDE the card */}
+        <div className="space-y-2">
+          <h1 className="text-3xl font-semibold tracking-tight text-slate-900">
+            Welcome back to MediLink
+          </h1>
+          <p className="text-sm text-slate-600">
+            Sign in to securely access your digital medical records.
+          </p>
+        </div>
 
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input
-                    type="email"
-                    autoComplete="email"
-                    placeholder="you@example.com"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        {/* Form Card */}
+        <div className="space-y-6 rounded-lg border p-6">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="email"
+                        autoComplete="email"
+                        placeholder="you@example.com"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <Input
-                    type="password"
-                    autoComplete="current-password"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <div className="flex items-center justify-between">
+                      <FormLabel>Password</FormLabel>
+                      <Link
+                        href="/forgot-password"
+                        className="text-xs font-medium text-sky-700 hover:underline"
+                      >
+                        Forgot?
+                      </Link>
+                    </div>
+                    <FormControl>
+                      <Input
+                        type="password"
+                        autoComplete="current-password"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-          {form.formState.errors.root?.message ? (
-            <p className="text-sm text-destructive">
-              {form.formState.errors.root.message}
-            </p>
-          ) : null}
+              {form.formState.errors.root?.message ? (
+                <p className="text-sm text-destructive">
+                  {form.formState.errors.root.message}
+                </p>
+              ) : null}
 
-          <Button
-            type="submit"
-            className="w-full"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Signing in..." : "Sign in"}
-          </Button>
-        </form>
-      </Form>
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Signing in..." : "Sign in"}
+              </Button>
+            </form>
+          </Form>
 
-      <div className="flex items-center justify-between text-xs text-slate-600">
-        <Link
-          href="/register"
-          className="font-medium text-sky-700 hover:underline"
-        >
-          Create an account
-        </Link>
-        <Link
-          href="/forgot-password"
-          className="font-medium text-sky-700 hover:underline"
-        >
-          Forgot password?
-        </Link>
+          <div className="flex items-center justify-between text-xs text-slate-600">
+            <Link
+              href="/register"
+              className="font-medium text-sky-700 hover:underline"
+            >
+              Create an account
+            </Link>
+
+            <Link
+              href="/forgot-password"
+              className="font-medium text-sky-700 hover:underline"
+            >
+              Forgot password?
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
-

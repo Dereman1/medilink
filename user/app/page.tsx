@@ -280,7 +280,7 @@ function HeroSection({
               <span className="text-primary">securely shared</span> when it matters.
             </h1>
             <p className="max-w-xl text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
-              RecordX helps patients store and manage their medical history, and helps
+              MediLink helps patients store and manage their medical history, and helps
               providers access the right context—fast, responsibly, and with clear control.
             </p>
           </div>
